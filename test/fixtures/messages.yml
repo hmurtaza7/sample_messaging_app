@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_id: 1
+  sender_id: 1
+  receiver_id: 1
+  text: MyText
+  is_approved: false
+
+two:
+  ad_id: 1
+  sender_id: 1
+  receiver_id: 1
+  text: MyText
+  is_approved: false
