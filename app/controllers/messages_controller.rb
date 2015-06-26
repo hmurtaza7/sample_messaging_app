@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
-    # binding.pry
   end
 
   # GET /messages/1
