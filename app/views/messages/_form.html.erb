@@ -1,4 +1,4 @@
-<%= form_for(@message) do |f| %>
+<%= form_for [@ad, @message] do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -12,25 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ad_id %><br>
-    <%= f.number_field :ad_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sender_id %><br>
-    <%= f.number_field :sender_id %>
-  </div>
-  <div class="field">
-    <%= f.label :receiver_id %><br>
-    <%= f.number_field :receiver_id %>
-  </div>
-  <div class="field">
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </div>
-  <div class="field">
-    <%= f.label :is_approved %><br>
-    <%= f.check_box :is_approved %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

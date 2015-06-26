@@ -1,7 +1,6 @@
-class Message < ActiveRecord::Base
-  belongs_to :ad
+class Reply < ActiveRecord::Base
   belongs_to :user
-  has_many   :replies
+  belongs_to :message
 
   after_update :send_mail
 
@@ -12,8 +11,7 @@ class Message < ActiveRecord::Base
   private
   def send_mail
     if is_approved_changed? && is_approved
-      # send email here
-      UserMailer.new_message_email(self).deliver_later
+      UserMailer.new_reply_email(self).deliver_later
     end
   end
 end

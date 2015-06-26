@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.message{
+  background-color: aliceblue;
+  padding: 15px;
+}
+.reply{
+  background-color: darkgray;
+  padding: 7px;
+}
+.replies_form{
+  display: none;
+}

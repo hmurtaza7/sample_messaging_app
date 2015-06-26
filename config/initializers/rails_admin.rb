@@ -31,4 +31,30 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model Message do
+    update do
+      configure :ad do
+        visible false
+      end
+      configure :user do
+        visible false
+      end
+      configure :replies do
+        visible false
+      end
+    end
+  end
+
+  config.model Reply do
+    update do
+      configure :message do
+        visible false
+      end
+      configure :user do
+        visible false
+      end
+    end
+  end
+
 end

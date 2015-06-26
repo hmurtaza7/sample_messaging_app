@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @message.ad.user.email %></h1>
+    <p>
+      You have received a new message from, <%= @sender.email %>
+    </p>
+    <p><%= @message.text %></p>
+    <p>
+      To view the message, just follow this link: <%= link_to 'view', @message.ad %>.
+    </p>
+  </body>
+</html>

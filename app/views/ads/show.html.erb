@@ -1,2 +1,56 @@
 <h1>Ads#show</h1>
-<p>Find me in app/views/ads/show.html.erb</p>
+
+
+<p>Title: <%= @ad.title %></p>
+<p>By: <%= @ad.user.email %></p>
+<hr>
+
+<% if current_user == @ad.user %>
+  <h2>Received Messages:</h2>
+
+  <% @ad.messages.approved.each do |message| %>
+    <div class="message">
+      <b><%= message.user.email %></b>: <span><%= message.text %></span>
+      <br>
+      <em><%= message.created_at %></em>
+      <div>
+        <% message.replies.approved.each do |reply| %>
+          <div class="reply">
+            <b>Me: </b><span><%= reply.text %></span>
+          </div>
+        <% end %>
+      </div>
+      <a href="#" class="reply_message" onclick="$('#reply_for_msg_<%= message.id %>').toggle();">Reply</a>
+      <div id="reply_for_msg_<%= message.id %>" class="replies_form">
+        <%= form_for Reply.new, url: ad_message_reply_path(@ad, message) do |f| %>
+          <%= f.label :text %>
+          <%= f.text_area :text %>
+          <%= f.submit 'Reply' %>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+<% else %>
+  <% @ad.sent_messages(current_user.id).each do |message| %>
+    <div class="message">
+      <b>Me: </b><span><%= message.text %></span>
+      <br>
+      <em><%= message.created_at %></em> - <b><%= message.is_approved ? 'Approved' : 'Pending Approval' %></b>
+      <div>
+        <% message.replies.approved.each do |reply| %>
+          <div class="reply">
+            <b><%= reply.user.email %>: </b><span><%= reply.text %></span>
+          </div>
+        <% end %>
+      </div>      
+    </div>
+    <br>
+  <% end %>
+
+  <h1>New Message</h1>
+  <% @message = Message.new %>
+  <%= render 'messages/form' %>
+  <%= link_to 'Back', ad_path(@ad) %>
+
+<% end %>

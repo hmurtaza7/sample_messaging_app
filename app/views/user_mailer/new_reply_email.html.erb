@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @message.user.email %></h1>
+    <p>
+      You have received a reply from, <%= @sender.email %>
+    </p>
+    <p><b>Message: </b><%= @message.text %></p>
+    <p><b>Reply: </b><%= @reply.text %></p>
+    <p>
+      To view the ad, just follow this link: <%= link_to 'view', @message.ad %>.
+    </p>
+  </body>
+</html>

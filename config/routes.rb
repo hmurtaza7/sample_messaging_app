@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :ads do
-    resource :user
-    resources :messages
+    resource  :user
+    resources :messages do
+      resource :reply
+    end
   end
 
 

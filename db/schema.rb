@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517232158) do
+ActiveRecord::Schema.define(version: 20150519232455) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20150517232158) do
 
   create_table "messages", force: :cascade do |t|
     t.integer  "ad_id",       limit: 4
+    t.integer  "user_id",     limit: 4
+    t.text     "text",        limit: 65535
+    t.boolean  "is_approved", limit: 1,     default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.integer  "message_id",  limit: 4
     t.integer  "user_id",     limit: 4
     t.text     "text",        limit: 65535
     t.boolean  "is_approved", limit: 1,     default: false

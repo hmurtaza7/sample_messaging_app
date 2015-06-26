@@ -1,0 +1,16 @@
+
+  <h2>My Ads</h2>
+  <% @my_ads.each do |ad| %>
+    <%= ad.title %> ... 
+    <%= link_to 'view messages', ad_messages_path(ad) %>
+    <br >
+  <% end %>
+
+  <hr>
+  <h2>All Ads</h2>
+  <% @ads.each do |ad| %>
+    <%= ad.title %> ... 
+    <%= link_to 'send message', new_ad_message_path(ad) %>
+    <br >
+  <% end %>
+
