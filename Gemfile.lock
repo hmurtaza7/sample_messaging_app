@@ -107,7 +107,7 @@ GEM
     multi_json (1.11.0)
     mysql2 (0.3.18)
     nested_form (0.3.2)
-    nokogiri (1.13.6)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
